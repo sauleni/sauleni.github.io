@@ -1,474 +1,1041 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- jquery -->
-    <script src="./js/jquery.js"></script>
-    <!-- /jquery -->
-
-    <!-- bootstrap -->
-    <!-- css -->
-    <link rel="stylesheet" href="./css/bootstrap.min.css" />
-    <!-- js -->
-    <script src="./js/bootstrap.min.js"></script>
-    <!-- /bootstrap -->
-
-    <!-- fontawesome -->
-    <link rel="stylesheet" href="./fontawesome-free-6.6.0-web/css/all.min.css" />
-    <!-- / fontawesome -->
-
-    <link rel="stylesheet" href="style.css">
-
-    <title>Sauleni Silas Chisale</title>
+    <title>Silas Chisale | Full Stack Developer & Software Engineer</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="https://img.icons8.com/color/96/000000/code.png">
+    <style>
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        .heading-font {
+            font-family: 'Poppins', sans-serif;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .gradient-text {
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .section-title {
+            position: relative;
+            padding-bottom: 12px;
+            display: inline-block;
+        }
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 70px;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            bottom: 0;
+            left: 0;
+            border-radius: 2px;
+        }
+        .skill-bar {
+            height: 10px;
+            background-color: #e2e8f0;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            border-radius: 5px;
+        }
+        .project-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #e5e7eb;
+        }
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            font-size: 20px;
+        }
+        .timeline-dot {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: 4px solid white;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
+        }
+        .testimonial-card {
+            background: linear-gradient(145deg, #ffffff, #f5f5f5);
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+        }
+        .cert-badge {
+            display: inline-block;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-right: 8px;
+            margin-bottom: 8px;
+        }
+        .nav-link {
+            position: relative;
+        }
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: #667eea;
+            bottom: -5px;
+            left: 0;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover:after {
+            width: 100%;
+        }
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
 </head>
-
-<body>
-    <!-- navbar -->
-    <nav class="navbar navbar-expand-lg shadow-sm">
-        <div class="container-fluid">
-            <div class="navbar-brand d-flex align-items-center mx-3 pt-3">
-                <h1>
-                    <a class="text-decoration-none" aria-label="Logo" href="/">SSC</a>
-                </h1>
-            </div>
-            <button
-                class="navbar-toggler collapsed d-flex d-lg-none flex-column justify-content-around"
-                type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav"
-                aria-expanded="false" aria-label="Toggle navigation"
-            >
-                <span class="toggler-icon top-bar"></span>
-                <span class="toggler-icon middle-bar"></span>
-                <span class="toggler-icon bottom-bar"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav m-auto mb-2 mb-lg-0 text-center">
-                    <li class="nav-item"><a class="nav-link px-3" aria-label="Home" href="#home">Home</a></li>
-                    <li class="nav-item"><a class="nav-link px-3" aria-label="About" href="#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link px-3" aria-label="Education" href="#education">Education</a>
-                    </li>
-                    <li class="nav-item"><a class="nav-link px-3" aria-label="Education"
-                            href="#experience">Experience</a></li>
-                    <li class="nav-item"><a class="nav-link px-3" aria-label="Skills" href="#skills">Skills</a></li>
-                    <li class="nav-item"><a class="nav-link px-3" aria-label="Projects" href="#projects">Projects</a>
-                    </li>
-                    <li class="nav-item"><a class="nav-link px-3" aria-label="Contact" href="#contact">Contact</a></li>
-                    <!-- <li class="nav-item"><a class="text-decoration-none navbar-nav-btn" target="_blank" rel="noreferrer"
-                            aria-label="Resume" href="./resume.pdf"><button class="btn btn-warning">My
-                                Resume</button></a></li> -->
-                </ul>
+<body class="bg-gray-50">
+    <!-- Header/Navigation -->
+    <header class="fixed w-full z-50 bg-white/90 backdrop-blur-sm shadow-md">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-bold text-gray-800 heading-font">
+                    <span class="gradient-text">S.Chisale</span>
+                </div>
+                <nav class="hidden md:block">
+                    <ul class="flex space-x-10">
+                        <li><a href="#home" class="text-gray-700 hover:text-purple-600 font-medium transition nav-link">Home</a></li>
+                        <li><a href="#about" class="text-gray-700 hover:text-purple-600 font-medium transition nav-link">About</a></li>
+                        <li><a href="#experience" class="text-gray-700 hover:text-purple-600 font-medium transition nav-link">Experience</a></li>
+                        <li><a href="#skills" class="text-gray-700 hover:text-purple-600 font-medium transition nav-link">Skills</a></li>
+                        <li><a href="#projects" class="text-gray-700 hover:text-purple-600 font-medium transition nav-link">Projects</a></li>
+                        <li><a href="#contact" class="text-gray-700 hover:text-purple-600 font-medium transition nav-link">Contact</a></li>
+                    </ul>
+                </nav>
+                <button id="mobile-menu-btn" class="md:hidden text-gray-700">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
             </div>
         </div>
-    </nav>
-    <!-- / navbar -->
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden absolute top-full left-0 w-full bg-white shadow-lg py-4">
+            <ul class="flex flex-col space-y-4 px-6">
+                <li><a href="#home" class="text-gray-700 hover:text-purple-600 font-medium text-lg py-2 block">Home</a></li>
+                <li><a href="#about" class="text-gray-700 hover:text-purple-600 font-medium text-lg py-2 block">About</a></li>
+                <li><a href="#experience" class="text-gray-700 hover:text-purple-600 font-medium text-lg py-2 block">Experience</a></li>
+                <li><a href="#skills" class="text-gray-700 hover:text-purple-600 font-medium text-lg py-2 block">Skills</a></li>
+                <li><a href="#projects" class="text-gray-700 hover:text-purple-600 font-medium text-lg py-2 block">Projects</a></li>
+                <li><a href="#contact" class="text-gray-700 hover:text-purple-600 font-medium text-lg py-2 block">Contact</a></li>
+            </ul>
+        </div>
+    </header>
 
-
-
-    <!-- home -->
-    <section id="home" class="header">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-5">
-                    <div class="profile-pic"><img alt="Sauleni Silas Chisale" rel="preload" fetchpriority="high"
-                            width="370" height="370" decoding="async" data-nimg="1" style="color: transparent;"
-                            src="./images/1.jpg"></div>
+    <!-- Hero Section -->
+    <section id="home" class="gradient-bg text-white pt-28 pb-24 md:pt-36 md:pb-32 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-10 left-10 w-20 h-20 rounded-full bg-white"></div>
+            <div class="absolute bottom-10 right-10 w-32 h-32 rounded-full bg-white"></div>
+            <div class="absolute top-1/2 right-1/4 w-16 h-16 rounded-full bg-white"></div>
+        </div>
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-12 md:mb-0" data-aos="fade-right">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 heading-font">Hi, I'm <span class="text-yellow-300">Silas Chisale</span></h1>
+                    <h2 class="text-2xl md:text-3xl font-semibold mb-6 heading-font">Full Stack Developer & Software Engineer</h2>
+                    <p class="text-xl mb-8 opacity-90 leading-relaxed">A results-driven software engineer with 5+ years of expertise in creating scalable web applications, optimizing digital experiences, and delivering innovative solutions that drive business growth and user engagement.</p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#contact" class="bg-white text-purple-700 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition transform hover:-translate-y-1 shadow-lg">Get In Touch</a>
+                        <a href="#projects" class="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-purple-700 transition transform hover:-translate-y-1">View My Portfolio</a>
+                        <!-- <a href="#about" class="text-white hover:text-yellow-300 font-medium flex items-center">
+                            <span>Download CV</span>
+                            <i class="fas fa-download ml-2"></i>
+                        </a> -->
+                    </div>
                 </div>
-                <div class="col-lg-7 header__flex">
-                    <div class="">
+                <div class="md:w-1/2 flex justify-center" data-aos="fade-left" data-aos-delay="200">
+                    <div class="relative">
+                        <div class="w-72 h-72 md:w-96 md:h-96 rounded-full overflow-hidden border-8 border-white/30 shadow-2xl">
+                            <!-- Placeholder for profile image -->
+                            <div class="w-full h-full bg-gradient-to-br from-blue-400 to-purple-600 flex items-center justify-center">
+                                <div class="text-center">
+                                    <i class="fas fa-code text-8xl text-white opacity-80"></i>
+                                    <p class="text-white mt-4 text-xl font-semibold">Silas Chisale</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="absolute -bottom-6 -right-6 bg-yellow-400 text-gray-800 px-6 py-3 rounded-lg font-bold shadow-xl">
+                            <i class="fas fa-medal mr-2"></i>5+ Years Experience
+                        </div>
+                        <div class="absolute -top-6 -left-6 bg-white text-purple-700 px-6 py-3 rounded-lg font-bold shadow-xl">
+                            <i class="fas fa-code-branch mr-2"></i>50+ Projects
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div class="text-center" data-aos="fade-up">
+                    <div class="stat-number">5+</div>
+                    <p class="text-gray-600 font-medium">Years Experience</p>
+                </div>
+                <div class="text-center" data-aos="fade-up" data-aos-delay="100">
+                    <div class="stat-number">50+</div>
+                    <p class="text-gray-600 font-medium">Projects Completed</p>
+                </div>
+                <div class="text-center" data-aos="fade-up" data-aos-delay="200">
+                    <div class="stat-number">30+</div>
+                    <p class="text-gray-600 font-medium">Happy Clients</p>
+                </div>
+                <div class="text-center" data-aos="fade-up" data-aos-delay="300">
+                    <div class="stat-number">15+</div>
+                    <p class="text-gray-600 font-medium">Technologies</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4 section-title heading-font" data-aos="fade-up">About Me</h2>
+            <p class="text-gray-600 mb-12 max-w-3xl text-lg" data-aos="fade-up" data-aos-delay="100">
+                I am a passionate software engineer specializing in full-stack development with a strong focus on creating responsive, 
+                user-centric web applications. My expertise spans both frontend and backend technologies, with a proven track record of 
+                delivering high-quality solutions that exceed client expectations.
+            </p>
+            
+            <div class="grid md:grid-cols-2 gap-12">
+                <div data-aos="fade-right">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6 heading-font">Professional Summary</h3>
+                    <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 mb-8">
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            As a detail-oriented software engineer with extensive experience in both front-end and back-end development, 
+                            I excel at transforming complex requirements into intuitive digital solutions. My approach combines technical 
+                            expertise with strategic thinking to deliver applications that are not only functional but also optimized for 
+                            performance, accessibility, and search engine visibility.
+                        </p>
+                        <p class="text-gray-600 leading-relaxed">
+                            I thrive in collaborative environments where I can contribute to all phases of the development lifecycle, 
+                            from initial concept and design to deployment and maintenance. My commitment to continuous learning ensures 
+                            I stay current with emerging technologies and industry best practices.
+                        </p>
+                    </div>
+                    
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6 heading-font">Education</h3>
+                    <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+                        <div class="flex items-start">
+                            <div class="bg-gradient-to-r from-purple-100 to-blue-100 p-4 rounded-xl mr-6">
+                                <i class="fas fa-graduation-cap text-2xl text-purple-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-xl text-gray-800 heading-font">Bachelor of Science in Information Technology</h4>
+                                <p class="text-purple-600 font-medium text-lg">Richfield Graduate Institute of Technology</p>
+                                <p class="text-gray-600 mb-4">2018 - 2020 | First Class Honors</p>
+                                <p class="text-gray-600">Graduated with top honors, specializing in software engineering principles, database management, and web technologies.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div data-aos="fade-left">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6 heading-font">Core Competencies</h3>
+                    <div class="mb-8">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 rounded-lg bg-gradient-to-r from-purple-500 to-blue-500 flex items-center justify-center mr-4">
+                                <i class="fas fa-laptop-code text-white text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg text-gray-800">Full Stack Development</h4>
+                                <p class="text-gray-600">Expertise in both client-side and server-side development with modern frameworks</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 rounded-lg bg-gradient-to-r from-green-500 to-teal-500 flex items-center justify-center mr-4">
+                                <i class="fas fa-search text-white text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg text-gray-800">SEO Optimization</h4>
+                                <p class="text-gray-600">Proven strategies for improving search rankings and website visibility</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 rounded-lg bg-gradient-to-r from-orange-500 to-red-500 flex items-center justify-center mr-4">
+                                <i class="fas fa-mobile-alt text-white text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg text-gray-800">Responsive Design</h4>
+                                <p class="text-gray-600">Creating seamless experiences across all devices and screen sizes</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 rounded-lg bg-gradient-to-r from-pink-500 to-purple-500 flex items-center justify-center mr-4">
+                                <i class="fas fa-bolt text-white text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg text-gray-800">Performance Optimization</h4>
+                                <p class="text-gray-600">Speed optimization techniques for improved user experience</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6 heading-font">Certifications & Training</h3>
+                    <div class="flex flex-wrap">
+                        <span class="cert-badge"><i class="fas fa-certificate mr-1"></i> React.js Advanced</span>
+                        <span class="cert-badge"><i class="fas fa-certificate mr-1"></i> Firebase Development</span>
+                        <span class="cert-badge"><i class="fas fa-certificate mr-1"></i> SEO Mastery</span>
+                        <span class="cert-badge"><i class="fas fa-certificate mr-1"></i> PHP Laravel</span>
+                        <span class="cert-badge"><i class="fas fa-certificate mr-1"></i> Web Accessibility</span>
+                        <span class="cert-badge"><i class="fas fa-certificate mr-1"></i> Node.js Backend</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-12 section-title heading-font" data-aos="fade-up">Professional Experience</h2>
+            
+            <div class="relative">
+                <!-- Timeline line -->
+                <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-purple-500 via-blue-500 to-indigo-500"></div>
+                
+                <!-- Experience 1 -->
+                <div class="relative mb-16" data-aos="fade-up">
+                    <div class="md:flex items-center">
+                        <div class="md:w-1/2 md:pr-12 md:text-right mb-6 md:mb-0">
+                            <div class="inline-block bg-gradient-to-r from-purple-50 to-blue-50 px-6 py-3 rounded-full mb-4">
+                                <span class="text-sm font-semibold text-purple-700">2021 - Present</span>
+                            </div>
+                            <h3 class="text-2xl font-bold text-gray-800 heading-font">Senior PHP Developer</h3>
+                            <p class="text-xl text-purple-600 font-medium">Suwani Global</p>
+                            <p class="text-gray-600">Harare, Zimbabwe</p>
+                        </div>
+                        <div class="hidden md:flex justify-center md:w-8">
+                            <div class="timeline-dot"></div>
+                        </div>
+                        <div class="md:w-1/2 md:pl-12">
+                            <div class="bg-white p-8 rounded-2xl shadow-md border border-gray-100 hover:border-purple-200 transition">
+                                <ul class="space-y-4">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-green-500 mt-1 mr-3 text-lg"></i>
+                                        <span class="text-gray-700">Lead a development team in creating dynamic, responsive web platforms using PHP, MySQL, and WordPress, resulting in a 40% improvement in site performance.</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-green-500 mt-1 mr-3 text-lg"></i>
+                                        <span class="text-gray-700">Implemented comprehensive SEO strategies including metadata optimization, structured data implementation, and advanced keyword analysis, increasing organic traffic by 60%.</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-green-500 mt-1 mr-3 text-lg"></i>
+                                        <span class="text-gray-700">Developed link-building campaigns through strategic outreach and content partnerships, improving domain authority by 25 points across client portfolios.</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-green-500 mt-1 mr-3 text-lg"></i>
+                                        <span class="text-gray-700">Optimized cross-browser compatibility and reduced average page load times by 3 seconds through code optimization and asset management techniques.</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Experience 2 -->
+                <div class="relative mb-16" data-aos="fade-up" data-aos-delay="100">
+                    <div class="md:flex items-center">
+                        <div class="md:w-1/2 md:pr-12 md:text-right mb-6 md:mb-0 order-2 md:order-1">
+                            <div class="bg-white p-8 rounded-2xl shadow-md border border-gray-100 hover:border-blue-200 transition">
+                                <ul class="space-y-4">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-blue-500 mt-1 mr-3 text-lg"></i>
+                                        <span class="text-gray-700">Developed and maintained 20+ custom websites, mobile applications, and progressive web apps using PHP, React.js, React Native, and Tailwind CSS.</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-blue-500 mt-1 mr-3 text-lg"></i>
+                                        <span class="text-gray-700">Created visually engaging interfaces with responsive, mobile-first layouts that increased user engagement by 35% across client projects.</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-blue-500 mt-1 mr-3 text-lg"></i>
+                                        <span class="text-gray-700">Integrated Firebase for real-time data synchronization, authentication, and hosting, reducing backend development time by 30%.</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-blue-500 mt-1 mr-3 text-lg"></i>
+                                        <span class="text-gray-700">Collaborated with cross-functional teams to optimize SEO and accessibility, ensuring WCAG 2.1 AA compliance for all digital products.</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="hidden md:flex justify-center md:w-8 order-1">
+                            <div class="timeline-dot"></div>
+                        </div>
+                        <div class="md:w-1/2 md:pl-12 order-3 md:order-3 mb-6 md:mb-0">
+                            <div class="inline-block bg-gradient-to-r from-blue-50 to-teal-50 px-6 py-3 rounded-full mb-4">
+                                <span class="text-sm font-semibold text-blue-700">2019 - 2021</span>
+                            </div>
+                            <h3 class="text-2xl font-bold text-gray-800 heading-font">Software Engineer</h3>
+                            <p class="text-xl text-blue-600 font-medium">Ben IT Solutions</p>
+                            <p class="text-gray-600">Johannesburg, South Africa</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Experience 3 -->
+                <div class="relative" data-aos="fade-up" data-aos-delay="200">
+                    <div class="md:flex items-center">
+                        <div class="md:w-1/2 md:pr-12 md:text-right mb-6 md:mb-0">
+                            <div class="inline-block bg-gradient-to-r from-indigo-50 to-purple-50 px-6 py-3 rounded-full mb-4">
+                                <span class="text-sm font-semibold text-indigo-700">2018 - 2019</span>
+                            </div>
+                            <h3 class="text-2xl font-bold text-gray-800 heading-font">Junior Web Developer</h3>
+                            <p class="text-xl text-indigo-600 font-medium">Tobb Technologies</p>
+                            <p class="text-gray-600">Johannesburg, South Africa</p>
+                        </div>
+                        <div class="hidden md:flex justify-center md:w-8">
+                            <div class="timeline-dot"></div>
+                        </div>
+                        <div class="md:w-1/2 md:pl-12">
+                            <div class="bg-white p-8 rounded-2xl shadow-md border border-gray-100 hover:border-indigo-200 transition">
+                                <ul class="space-y-4">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-indigo-500 mt-1 mr-3 text-lg"></i>
+                                        <span class="text-gray-700">Developed user-facing components for 15+ client websites using HTML5, PHP, CSS3, and vanilla JavaScript, ensuring pixel-perfect implementation of designs.</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-indigo-500 mt-1 mr-3 text-lg"></i>
+                                        <span class="text-gray-700">Translated UI/UX wireframes into functional, responsive web pages with a focus on cross-browser compatibility and mobile responsiveness.</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-indigo-500 mt-1 mr-3 text-lg"></i>
+                                        <span class="text-gray-700">Conducted comprehensive debugging and testing across major browsers and devices using Chrome DevTools and browser testing platforms.</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-indigo-500 mt-1 mr-3 text-lg"></i>
+                                        <span class="text-gray-700">Implemented performance optimizations including image compression, lazy-loading scripts, and code minification, reducing average page load time by 45%.</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-12 section-title heading-font" data-aos="fade-up">Technical Expertise</h2>
+            
+            <div class="grid md:grid-cols-2 gap-12 mb-16">
+                <!-- Frontend Skills -->
+                <div data-aos="fade-right">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-8 heading-font flex items-center">
+                        <div class="w-12 h-12 rounded-lg bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center mr-4">
+                            <i class="fas fa-desktop text-white text-xl"></i>
+                        </div>
+                        Frontend Development
+                    </h3>
+                    <div class="space-y-6">
                         <div>
-                            <h6 class="header__hello">Hello. I'm</h6>
-                            <h1 class="header__intro">Sauleni Silas Chisale</h1>
-                            <p class="header__list"><b class="tags">&lt;</b>Mr. <b class="tags">/&gt;</b></p>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-semibold text-gray-700 text-lg">HTML5 & CSS3</span>
+                                <span class="font-bold text-purple-600">95%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 95%"></div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- / home -->
-
-    <!-- about -->
-    <section class="about py-5" id="about">
-        <div class="d-flex flex-wrap p-3">
-            <h2 class="section__heading w-100 text-center py-5">About Me</h2>
-            <div class="row justify-content-center">
-                <div class="col-lg-4 col-md-6 col-sm-12 col-12 py-3">
-                    <div class="about__item mx-2 py-4 px-2">
-                        <div class="about__item-img"><img alt="Sauleni" loading="lazy" decoding="async"
-                                class="img-actual" style="color: transparent;" src="./images/graduate.webp"></div>
-                        <div class="about__item-content">
-                            <div class="about__item-heading">
-                                <h3>IT Graduate</h3>
-                                <div class="about__item-para">
-                                    <p>I Am An Information Technology Graduate From Richfield Graduate Institute Of
-                                        Technology(RGIT)</p>
-                                </div>
-                                <div class="about__item-details">
-                                    <div class="about__item-section-2">
-                                        <h5>What I Studied:</h5>
-                                        <ul>
-                                            <li>📚 Web Dev (HTML, CSS, JS, PHP)</li>
-                                            <li>🚀 Desktop Dev (C#, Java)</li>
-                                            <li>🤝 Networking</li>
-                                        </ul>
-                                    </div>
-                                </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-semibold text-gray-700 text-lg">JavaScript (ES6+)</span>
+                                <span class="font-bold text-purple-600">92%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 92%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-semibold text-gray-700 text-lg">React.js & React Native</span>
+                                <span class="font-bold text-purple-600">88%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 88%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-semibold text-gray-700 text-lg">Tailwind CSS & Bootstrap</span>
+                                <span class="font-bold text-purple-600">90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%"></div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 col-sm-12 col-12 py-3">
-                    <div class="about__item mx-2 py-4 px-2">
-                        <div class="about__item-img"><img alt="Sauleni" loading="lazy" decoding="async"
-                                class="img-actual" style="color: transparent;" src="./images/softwareengineer.jpeg">
+                
+                <!-- Backend Skills -->
+                <div data-aos="fade-left">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-8 heading-font flex items-center">
+                        <div class="w-12 h-12 rounded-lg bg-gradient-to-r from-blue-500 to-cyan-500 flex items-center justify-center mr-4">
+                            <i class="fas fa-server text-white text-xl"></i>
                         </div>
-                        <div class="about__item-content">
-                            <div class="about__item-heading">
-                                <h3>Software Engineer</h3>
-                                <div class="about__item-para">
-                                    <p>I enjoy designing and developing applications and watching how they come to life.
-                                        I develop desktop, web and android applications.</p>
-                                </div>
-                                <div class="about__item-details">
-                                    <div class="about__item-section-2">
-                                        <h5>Tech Stack I Use:</h5>
-                                        <ul>
-                                            <li>🌐 React.js | Next.js | Django</li>
-                                            <li>🌐 Tailwind | Bootstrap | CSS | HTML | JavaScript | PHP</li>
-                                            <li>🔧 VSCode | Postman | Pycharm</li>
-                                            <li>🔧 Android Studio | React Native</li>
-                                            <li>☁️ Azure | Firebase | MySQL | SQL | PostreSQL | MongoDB</li>
-                                        </ul>
-                                    </div>
-                                </div>
+                        Backend Development
+                    </h3>
+                    <div class="space-y-6">
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-semibold text-gray-700 text-lg">PHP & Laravel</span>
+                                <span class="font-bold text-purple-600">94%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 94%"></div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-12 col-12 py-3">
-                    <div class="about__item mx-2 py-4 px-2">
-                        <div class="about__item-img"><img alt="Sauleni" loading="lazy" decoding="async"
-                                class="img-actual" style="color: transparent;" src="./images/mentor.jpg"></div>
-                        <div class="about__item-content">
-                            <div class="about__item-heading">
-                                <h3>Mentor/Teacher</h3>
-                                <div class="about__item-para">
-                                    <p>🧑‍🏫 I also mentor Junior Developers. I started mentoring junior developers when
-                                        I realised I also learn new things by sharing and colaborating with other
-                                        developers.</p>
-                                </div>
-                                <div class="about__item-details">
-                                    <div class="about__item-section-2">
-                                        <h5>What I teach:</h5>
-                                        <ul>
-                                            <li>🌐 Python</li>
-                                            <li>🌐 Java</li>
-                                            <li>🌐 Web Dev: HTML, CSS, JavaScript, PHP, React.js</li>
-                                            <li>🔧 Android Dev: Android Studio, Java</li>
-                                            <li>☁️ Azure | Firebase | MySQL | SQL | PostreSQL | MongoDB</li>
-                                        </ul>
-                                    </div>
-                                </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-semibold text-gray-700 text-lg">Node.js / Express.js</span>
+                                <span class="font-bold text-purple-600">85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-semibold text-gray-700 text-lg">Firebase & Google Cloud</span>
+                                <span class="font-bold text-purple-600">87%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 87%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-semibold text-gray-700 text-lg">MySQL / PostgreSQL</span>
+                                <span class="font-bold text-purple-600">89%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 89%"></div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-    <!-- / about -->
-
-    <!-- education -->
-    <section id="education" class="p-3 mb-2 border-bottom">
-        <h1 class="w-100 text-center">My Education</h1>
-        <hr>
-        <div class="row">
-            <div class="col-lg-5 text-center">
-                <h3>Richfield Graduate Institute Of Technology</h3><img src="./images/richfield.png" alt="Richfield">
-            </div>
-            <div class="col-lg-7">
-                <h4>Bachelor of Science in Information Technology</h4>
-                <div class="row">
-                    <div id="learnt" class="col-lg-8 col-md-5 col-sm-6">
-                        <h5>What I learnt:</h5>
-                        <ul>
-                            <li>Networking</li>
-                            <li>Web Technologies</li>
-                            <li>Information Systems</li>
-                            <li>Mathematics</li>
-                            <li>Artificial Intelligence</li>
-                            <li>Programming</li>
-                            <li>Big Data and IoT</li>
-                        </ul>
+            
+            <!-- Tools & Platforms -->
+            <div class="mb-16" data-aos="fade-up">
+                <h3 class="text-2xl font-bold text-gray-800 mb-8 heading-font">Development Tools & Platforms</h3>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 text-center hover:shadow-md transition">
+                        <i class="fas fa-code-branch text-3xl text-purple-600 mb-3"></i>
+                        <h4 class="font-bold text-gray-800">Version Control</h4>
+                        <p class="text-gray-600 text-sm">Git, GitHub, GitLab</p>
                     </div>
-                    <div id="outcome" class="col-lg-8 col-md-5 col-sm-6">
-                        <h5>Outcome</h5>
-                        <ol>
-                            <li>I can now demonstrate key scientific reasoning skills.</li>
-                            <li>Because of research studies, I can now learn any new concept or programming language
-                                without any help.</li>
-                            <li>Ability to demonstrate effective Information and Communication Technology (ICT) skills.
-                            </li>
-                            <li>Gained the ability to apply scientific knowledge and ways of thinking to societal
-                                issues, taking into account ethical and cultural considerations.</li>
-                        </ol>
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 text-center hover:shadow-md transition">
+                        <i class="fas fa-terminal text-3xl text-blue-600 mb-3"></i>
+                        <h4 class="font-bold text-gray-800">IDEs & Editors</h4>
+                        <p class="text-gray-600 text-sm">VS Code, PhpStorm, Sublime</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 text-center hover:shadow-md transition">
+                        <i class="fas fa-cloud-upload-alt text-3xl text-green-600 mb-3"></i>
+                        <h4 class="font-bold text-gray-800">Deployment</h4>
+                        <p class="text-gray-600 text-sm">Netlify, Vercel, Firebase Hosting</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 text-center hover:shadow-md transition">
+                        <i class="fas fa-tasks text-3xl text-orange-600 mb-3"></i>
+                        <h4 class="font-bold text-gray-800">Testing & API</h4>
+                        <p class="text-gray-600 text-sm">Postman, Jest, Chrome DevTools</p>
                     </div>
                 </div>
             </div>
-        </div>
-        <hr>
-        <div class="row">
-            <h3>Alison Courses</h3>
-        </div>
-    </section>
-    <!-- / education -->
-
-    <!-- experience -->
-    <section id="experience">
-        <h1 class="w-100 text-center">Work Experience</h1>
-        <div class="p-3">
-            <div class="row py-3 border-bottom">
-                <div class="col-lg-5 col-md-10 col-sm-12">
-                    <h5>Freelance Software Engineer</h5>
-                    <h5>Self-employed</h5>
-                    <h6>Johannesburg, South Africa</h6>
-                    <h6>Jan 2024 - Current</h6>
-                    <div class="w-100 d-flex align-items-center ps-4">
-                        <img src="./images/1.jpg" alt="image" style="width: 8em;" />
-                    </div>
-                </div>
-
-                <div class="col-lg-7 col-md-10 col-sm-12">
-                    <div></div>
-                    <li class="">
-                        Diagnosing technical issues for clients day by phone, email, and chat, solving
-                        issues within 15 minutes on average.
-                    </li>
-                </div>
-            </div>
-
-            <div class="row py-3 border-bottom">
-                <div class="col-lg-5 col-md-10 col-sm-12">
-                    <h5>Software Engineer</h5>
-                    <h5>Ben IT Solutions</h5>
-                    <h6>Johannesburg, South Africa</h6>
-                    <h6>Jul 2021 - Dec 2023</h6>
-                    <div
-                        class="w-100 d-flex align-items-center ps-4"
-                    >
-                        <img src="./images/ben.webp" alt="" style="width: 8em;"/>
-                    </div>
-                </div>
-                <div class="col-lg-7 col-md-10 col-sm-12">
-                    <div></div>
-                    <li class="">Worked with product managers to re-architect a multi-page web app into a single page
-                        web-app</li>
-                    <li class="">Built RESTful APIs that served data to the JavaScript front-end based on dynamically
-                        chosen user inputs that handled over 100,000 concurrent users</li>
-                    <li class="">Partnered with a developer to implement RESTful APIs in Django, enabling analytics team
-                        to increase reporting speed by 24%</li>
-                    <li class="">Mentored 3 junior front-end developers on the team on React.js, and documented best
-                        practices within the organization</li>
-                    <li class="">Created a web app for an employee management platform using React and Firebase where
-                        managers could create, manage, and monitor employee records for attendance and perfomance</li>
-                </div>
-            </div>
-
-            <div class="row py-3 border-bottom">
-                <div class="col-lg-5 col-md-10 col-sm-12">
-                    <h5>Junior Software Engineer</h5>
-                    <h5>Tobb Technologies</h5>
-                    <h6>Johannesburg, South Africa</h6>
-                    <h6>Jan 2021 - Jun 2021</h6>
-                    <div
-                        class="w-100 d-flex align-items-center ps-4 py-2"
-                    >
-                        <img src="./images/tobb.jpg" alt="image" style="width: 8em;" />
-                    </div>
-                </div>
-                <div class="col-lg-7 col-md-10 col-sm-12">
-                    <div></div>
-                    <li class="">Assisted in finding and fixing simple bugs with oversight from senior developers.</li>
-                    <li class="">Help develop react components for the company website.</li>
-                    <li class="">Colaborated with team members on coding tasks for to improve technical skills</li>
+            
+            <!-- Additional Skills -->
+            <div data-aos="fade-up">
+                <h3 class="text-2xl font-bold text-gray-800 mb-8 heading-font">Additional Capabilities</h3>
+                <div class="flex flex-wrap gap-4">
+                    <span class="bg-gradient-to-r from-purple-100 to-blue-100 text-purple-800 px-5 py-3 rounded-lg font-semibold">RESTful API Development</span>
+                    <span class="bg-gradient-to-r from-green-100 to-teal-100 text-green-800 px-5 py-3 rounded-lg font-semibold">SEO Strategy & Implementation</span>
+                    <span class="bg-gradient-to-r from-yellow-100 to-orange-100 text-yellow-800 px-5 py-3 rounded-lg font-semibold">Web Performance Optimization</span>
+                    <span class="bg-gradient-to-r from-pink-100 to-red-100 text-pink-800 px-5 py-3 rounded-lg font-semibold">Responsive Web Design</span>
+                    <span class="bg-gradient-to-r from-indigo-100 to-purple-100 text-indigo-800 px-5 py-3 rounded-lg font-semibold">Cross-Browser Compatibility</span>
+                    <span class="bg-gradient-to-r from-cyan-100 to-blue-100 text-cyan-800 px-5 py-3 rounded-lg font-semibold">Web Accessibility (WCAG)</span>
+                    <span class="bg-gradient-to-r from-gray-100 to-blue-50 text-gray-800 px-5 py-3 rounded-lg font-semibold">Agile/Scrum Methodologies</span>
+                    <span class="bg-gradient-to-r from-blue-50 to-cyan-50 text-blue-800 px-5 py-3 rounded-lg font-semibold">Technical Documentation</span>
                 </div>
             </div>
         </div>
     </section>
-    <!-- / experience -->
 
-    <!-- skills -->
-    <section class="p-3" id="skills">
-        <h1 class="w-100 text-center">Skills, Frameworks, Libraries and Languages</h1>
-        <div class="d-flex flex-wrap align-items-center justify-content-around">
-            <div class="skill_container">
-                <img src="./images/androidstudio.png" alt="Android studio" class="skill" />
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4 section-title heading-font" data-aos="fade-up">Portfolio Projects</h2>
+            <p class="text-gray-600 mb-12 text-lg max-w-3xl" data-aos="fade-up" data-aos-delay="100">
+                A selection of recent projects showcasing my expertise in web development, responsive design, and full-stack implementation.
+            </p>
+            
+            <div class="grid md:grid-cols-3 gap-8 mb-16">
+                <!-- Project 1 -->
+                <div class="project-card" data-aos="fade-up">
+                    <div class="h-56 bg-gradient-to-r from-blue-600 to-indigo-700 flex items-center justify-center relative overflow-hidden">
+                        <div class="absolute inset-0 opacity-20">
+                            <div class="absolute top-1/4 left-1/4 w-32 h-32 rounded-full bg-white"></div>
+                            <div class="absolute bottom-1/4 right-1/4 w-24 h-24 rounded-full bg-white"></div>
+                        </div>
+                        <i class="fas fa-industry text-white text-6xl z-10"></i>
+                        <div class="absolute top-4 right-4 bg-white/20 backdrop-blur-sm text-white px-3 py-1 rounded-full text-sm font-semibold">
+                            Live
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-3 heading-font">Ace Aluminium</h3>
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            A comprehensive website for a leading aluminium manufacturing company featuring product showcases, 
+                            service pages, and client portfolio. Implemented with a focus on performance and mobile responsiveness.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="text-xs bg-blue-100 text-blue-800 px-3 py-1.5 rounded-full font-medium">HTML5</span>
+                            <span class="text-xs bg-blue-100 text-blue-800 px-3 py-1.5 rounded-full font-medium">CSS3</span>
+                            <span class="text-xs bg-blue-100 text-blue-800 px-3 py-1.5 rounded-full font-medium">JavaScript</span>
+                            <span class="text-xs bg-blue-100 text-blue-800 px-3 py-1.5 rounded-full font-medium">Responsive</span>
+                            <span class="text-xs bg-blue-100 text-blue-800 px-3 py-1.5 rounded-full font-medium">SEO Optimized</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <a href="https://acealuminium.co.za/" target="_blank" class="inline-flex items-center text-purple-600 font-semibold hover:text-purple-800 group">
+                                View Live Project <i class="fas fa-arrow-right ml-2 group-hover:ml-3 transition-all"></i>
+                            </a>
+                            <span class="text-sm text-gray-500 font-medium">Client Project</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="project-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="h-56 bg-gradient-to-r from-green-600 to-teal-700 flex items-center justify-center relative overflow-hidden">
+                        <div class="absolute inset-0 opacity-20">
+                            <div class="absolute top-1/3 left-1/3 w-28 h-28 rounded-full bg-white"></div>
+                            <div class="absolute bottom-1/3 right-1/3 w-20 h-20 rounded-full bg-white"></div>
+                        </div>
+                        <i class="fas fa-tools text-white text-6xl z-10"></i>
+                        <div class="absolute top-4 right-4 bg-white/20 backdrop-blur-sm text-white px-3 py-1 rounded-full text-sm font-semibold">
+                            Live
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-3 heading-font">VB Services</h3>
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            A service-oriented business website built with WordPress CMS, featuring service listings, 
+                            booking functionality, and client testimonials. Optimized for conversions and user experience.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="text-xs bg-green-100 text-green-800 px-3 py-1.5 rounded-full font-medium">WordPress</span>
+                            <span class="text-xs bg-green-100 text-green-800 px-3 py-1.5 rounded-full font-medium">PHP</span>
+                            <span class="text-xs bg-green-100 text-green-800 px-3 py-1.5 rounded-full font-medium">MySQL</span>
+                            <span class="text-xs bg-green-100 text-green-800 px-3 py-1.5 rounded-full font-medium">SEO</span>
+                            <span class="text-xs bg-green-100 text-green-800 px-3 py-1.5 rounded-full font-medium">Custom Theme</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <a href="https://vbservices.co.za/" target="_blank" class="inline-flex items-center text-purple-600 font-semibold hover:text-purple-800 group">
+                                View Live Project <i class="fas fa-arrow-right ml-2 group-hover:ml-3 transition-all"></i>
+                            </a>
+                            <span class="text-sm text-gray-500 font-medium">Client Project</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="project-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="h-56 bg-gradient-to-r from-purple-600 to-pink-700 flex items-center justify-center relative overflow-hidden">
+                        <div class="absolute inset-0 opacity-20">
+                            <div class="absolute top-1/4 right-1/4 w-24 h-24 rounded-full bg-white"></div>
+                            <div class="absolute bottom-1/4 left-1/4 w-32 h-32 rounded-full bg-white"></div>
+                        </div>
+                        <i class="fas fa-comments text-white text-6xl z-10"></i>
+                        <div class="absolute top-4 right-4 bg-white/20 backdrop-blur-sm text-white px-3 py-1 rounded-full text-sm font-semibold">
+                            Live
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-3 heading-font">Real-Time Chat App</h3>
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            A modern real-time chat application with user authentication, direct messaging, and group chats. 
+                            Built with React.js and Firebase for instant message delivery and synchronization.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="text-xs bg-purple-100 text-purple-800 px-3 py-1.5 rounded-full font-medium">React.js</span>
+                            <span class="text-xs bg-purple-100 text-purple-800 px-3 py-1.5 rounded-full font-medium">Firebase</span>
+                            <span class="text-xs bg-purple-100 text-purple-800 px-3 py-1.5 rounded-full font-medium">Tailwind CSS</span>
+                            <span class="text-xs bg-purple-100 text-purple-800 px-3 py-1.5 rounded-full font-medium">Real-time</span>
+                            <span class="text-xs bg-purple-100 text-purple-800 px-3 py-1.5 rounded-full font-medium">Authentication</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <a href="https://chat-7f05f.web.app/" target="_blank" class="inline-flex items-center text-purple-600 font-semibold hover:text-purple-800 group">
+                                View Live Project <i class="fas fa-arrow-right ml-2 group-hover:ml-3 transition-all"></i>
+                            </a>
+                            <span class="text-sm text-gray-500 font-medium">Personal Project</span>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="skill_container">
-                <img src="./images/c-sharp.png" alt="c-sharp.png" class="skill" />
-            </div>
-            <div class="skill_container">
-                <img src="./images/c++.png" alt="c++.png" class="skill" />
-            </div>
-            <div class="skill_container">
-                <img src="./images/css.png" alt="css.png" class="skill" />
-            </div>
-            <div class="skill_container">
-                <img src="./images/django1.png" alt="django1.png" class="skill" />
-            </div>
-            <div class="skill_container">
-                <img src="./images/firebase.png" alt="firebase.png" class="skill" />
-            </div>
-            <div class="skill_container">
-                <img src="./images/flask.png" alt="flask.png" class="skill" />
-            </div>
-            <div class="skill_container">
-                <img src="./images/flutter.png" alt="flutter.png" class="skill" />
-            </div>
-            <div class="skill_container">
-                <img src="./images/html.png" alt="html.png" class="skill" />
-            </div>
-            <div class="skill_container">
-                <img src="./images/java.png" alt="java.png" class="skill" />
-            </div>
-            <div class="skill_container">
-                <img src="./images/js.png" alt="js.png" class="skill" />
-            </div>
-            <div class="skill_container">
-                <img src="./images/next.png" alt="next.png" class="skill" />
-            </div>
-            <div class="skill_container">
-                <img src="./images/php.png" alt="php.png" class="skill" />
-            </div>
-            <div class="skill_container">
-                <img src="./images/python.png" alt="python.png" class="skill" />
-            </div>
-            <div class="skill_container">
-                <img src="./images/react.png" alt="react.png" class="skill" />
-            </div>
-            <div class="skill_container">
-                <img src="./images/reactnative.png" alt="reactnative.png" class="skill" />
-            </div>
-            <div class="skill_container">
-                <img src="./images/tailwind.png" alt="tailwind.png" class="skill" />
-            </div>
-            <div class="skill_container">
-                <img src="./images/vercel.png" alt="vercel.png" class="skill" />
-            </div>
-        </div>
-    </section>
-    <!-- / skills -->
-
-    <!-- projects -->
-    <section id="projects">
-        <h2 class="w-100 text-center">PROJECTS</h2>
-        <div class="row d-flex flex-wrap justify-content-around" id="projects_container">
-
-        </div>
-
-    </section>
-    <!-- / projects -->
-
-    <!-- contact -->
-<section class="bg-light py-3 py-md-5" id="contact">
-        <div class="container">
-            <div class="row justify-content-md-center">
-                <div class="col-12 col-md-10 col-lg-8 col-xl-7 col-xxl-6">
-                    <h2 class="mb-4 display-5 text-center">CONTACT ME</h2>
-                    <p class="text-secondary mb-5 text-center">The best way to contact me is to use the contact form
-                        below. Please fill out all of the required fields and I will get back to you as soon as
-                        possible.</p>
-                    <hr class="w-50 mx-auto mb-5 mb-xl-9 border-dark-subtle">
+            
+            <!-- Project Stats -->
+            <div class="bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl p-8 md:p-12" data-aos="fade-up">
+                <h3 class="text-2xl font-bold text-gray-800 mb-8 heading-font text-center">Project Impact & Results</h3>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                    <div class="text-center">
+                        <div class="text-4xl font-bold text-purple-700 mb-2">60%</div>
+                        <p class="text-gray-700 font-medium">Average Increase in Organic Traffic</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl font-bold text-blue-700 mb-2">45%</div>
+                        <p class="text-gray-700 font-medium">Average Reduction in Page Load Time</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl font-bold text-green-700 mb-2">35%</div>
+                        <p class="text-gray-700 font-medium">Average Improvement in User Engagement</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl font-bold text-indigo-700 mb-2">100%</div>
+                        <p class="text-gray-700 font-medium">Client Satisfaction Rate</p>
+                    </div>
                 </div>
             </div>
         </div>
+    </section>
 
-        <div class="container">
-            <div class="row justify-content-lg-center">
-                <div class="col-12 col-lg-9">
-                    <div class="bg-white border rounded shadow-sm overflow-hidden">
+    <!-- Testimonials Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-12 section-title heading-font text-center" data-aos="fade-up">Client Testimonials</h2>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="testimonial-card" data-aos="fade-right">
+                    <div class="flex items-center mb-6">
+                        <div class="w-16 h-16 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 flex items-center justify-center text-white text-2xl font-bold mr-4">
+                            BS
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold text-gray-800">Bernard Sibanda</h4>
+                            <p class="text-purple-600 font-medium">IT Manager, Tobb Technologies</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic mb-6 leading-relaxed">
+                        "Silas demonstrated exceptional skill and dedication during his time at Tobb Technologies. 
+                        His ability to translate complex requirements into clean, efficient code was impressive. 
+                        He consistently delivered high-quality work ahead of deadlines and was a valuable team player."
+                    </p>
+                    <div class="flex text-yellow-400 mb-4">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <!-- <div class="text-right">
+                        <p class="text-gray-500 font-medium">+27 73 182 0631</p>
+                    </div> -->
+                </div>
+                
+                <div class="testimonial-card" data-aos="fade-left">
+                    <div class="flex items-center mb-6">
+                        <div class="w-16 h-16 rounded-full bg-gradient-to-r from-green-500 to-teal-500 flex items-center justify-center text-white text-2xl font-bold mr-4">
+                            BM
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold text-gray-800">Benson Munjanja</h4>
+                            <p class="text-blue-600 font-medium">Project Manager, Ben IT Solutions</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic mb-6 leading-relaxed">
+                        "Working with Silas was a pleasure. His technical expertise in both frontend and backend development 
+                        helped us deliver outstanding projects to our clients. His attention to detail, particularly in 
+                        performance optimization and SEO implementation, added significant value to our deliverables."
+                    </p>
+                    <div class="flex text-yellow-400 mb-4">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <!-- <div class="text-right">
+                        <p class="text-gray-500 font-medium">+27 61 310 1153</p>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </section>
 
-                        <form action="#!">
-                            <div class="row gy-4 gy-xl-5 p-4 p-xl-5">
-                                <div class="col-12">
-                                    <label for="fullname" class="form-label">Full Name<span
-                                            class="text-danger">*</span></label>
-                                    <input type="text" class="form-control" id="fullname" name="fullname" value=""
-                                        required>
-                                </div>
-                                <div class="col-12 col-md-6">
-                                    <label for="email" class="form-label">Email <span
-                                            class="text-danger">*</span></label>
-                                    <div class="input-group">
-                                        <span class="input-group-text">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                fill="currentColor" class="bi bi-envelope" viewBox="0 0 16 16">
-                                                <path
-                                                    d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z" />
-                                            </svg>
-                                        </span>
-                                        <input type="email" class="form-control" id="email" name="email" value=""
-                                            required>
-                                    </div>
-                                </div>
-                                <div class="col-12 col-md-6">
-                                    <label for="phone" class="form-label">Phone Number</label>
-                                    <div class="input-group">
-                                        <span class="input-group-text">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                fill="currentColor" class="bi bi-telephone" viewBox="0 0 16 16">
-                                                <path
-                                                    d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z" />
-                                            </svg>
-                                        </span>
-                                        <input type="tel" class="form-control" id="phone" name="phone" value="">
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <label for="message" class="form-label">Message <span
-                                            class="text-danger">*</span></label>
-                                    <textarea class="form-control" id="message" name="message" rows="3"
-                                        required></textarea>
-                                </div>
-                                <div class="col-12">
-                                    <div class="d-grid">
-                                        <button class="btn btn-primary btn-lg" type="submit">SEND</button>
-                                    </div>
-                                </div>
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-12 section-title heading-font" data-aos="fade-up">Let's Work Together</h2>
+            
+            <div class="grid md:grid-cols-2 gap-12">
+                <div data-aos="fade-right">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6 heading-font">Get In Touch</h3>
+                    <p class="text-gray-600 mb-10 text-lg leading-relaxed">
+                        I'm currently available for freelance projects, contract work, and full-time opportunities. 
+                        Whether you have a project in mind or just want to connect, feel free to reach out. I typically respond within 24 hours.
+                    </p>
+                    
+                    <div class="space-y-8">
+                        <div class="flex items-start">
+                            <div class="contact-icon mr-6 flex-shrink-0">
+                                <i class="fas fa-envelope"></i>
                             </div>
-                        </form>
-
+                            <div>
+                                <p class="font-bold text-gray-800 text-lg mb-1">Email</p>
+                                <a href="mailto:saulenisilaschisale007@gmail.com" class="text-purple-600 hover:text-purple-800 text-lg">saulenisilaschisale007@gmail.com</a>
+                                <p class="text-gray-600 mt-2">For project inquiries and collaborations</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="contact-icon mr-6 flex-shrink-0">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div>
+                                <p class="font-bold text-gray-800 text-lg mb-1">Phone / WhatsApp</p>
+                                <a href="tel:+263781521074" class="text-purple-600 hover:text-purple-800 text-lg">+263 781 521 074</a>
+                                <p class="text-gray-600 mt-2">Available for calls during business hours</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="contact-icon mr-6 flex-shrink-0">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <p class="font-bold text-gray-800 text-lg mb-1">Location</p>
+                                <p class="text-gray-700 text-lg">40 Sandown Rd Waterfalls, Harare, Zimbabwe</p>
+                                <p class="text-gray-600 mt-2">Available for remote work worldwide</p>
+                            </div>
+                        </div>
                     </div>
+                    
+                    <div class="mt-12">
+                        <h4 class="text-xl font-bold text-gray-800 mb-6 heading-font">Connect With Me</h4>
+                        <div class="flex space-x-6">
+                            <a href="https://www.linkedin.com/in/sauleni-chisale-a97263148/" class="w-14 h-14 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 flex items-center justify-center text-white hover:shadow-xl transition transform hover:-translate-y-1">
+                                <i class="fab fa-linkedin-in text-2xl"></i>
+                            </a>
+                            <a href="https://github.com/sauleni/" class="w-14 h-14 rounded-full bg-gradient-to-r from-gray-800 to-black flex items-center justify-center text-white hover:shadow-xl transition transform hover:-translate-y-1">
+                                <i class="fab fa-github text-2xl"></i>
+                            </a>
+                            <a href="https://www.facebook.com/saulenisilas.chisale/" class="w-14 h-14 rounded-full bg-gradient-to-r from-blue-400 to-cyan-500 flex items-center justify-center text-white hover:shadow-xl transition transform hover:-translate-y-1">
+                                <i class="fab fa-facebook text-2xl"></i>
+                            </a>
+                            <!-- <a href="#" class="w-14 h-14 rounded-full bg-gradient-to-r from-red-500 to-pink-500 flex items-center justify-center text-white hover:shadow-xl transition transform hover:-translate-y-1">
+                                <i class="fab fa-instagram text-2xl"></i>
+                            </a> -->
+                        </div>
+                    </div>
+                </div>
+                
+                <div data-aos="fade-left">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6 heading-font">Send a Message</h3>
+                    <form id="contactForm" class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-gray-700 font-semibold mb-2">Full Name *</label>
+                            <input type="text" id="name" class="w-full px-5 py-4 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent" placeholder="Your Name" required>
+                        </div>
+                        <div>
+                            <label for="email" class="block text-gray-700 font-semibold mb-2">Email Address *</label>
+                            <input type="email" id="email" class="w-full px-5 py-4 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent" placeholder="your.email@example.com" required>
+                        </div>
+                        <div>
+                            <label for="subject" class="block text-gray-700 font-semibold mb-2">Subject *</label>
+                            <input type="text" id="subject" class="w-full px-5 py-4 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent" placeholder="Project Inquiry, Collaboration, etc." required>
+                        </div>
+                        <div>
+                            <label for="message" class="block text-gray-700 font-semibold mb-2">Your Message *</label>
+                            <textarea id="message" rows="6" class="w-full px-5 py-4 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent" placeholder="Tell me about your project, timeline, and budget..." required></textarea>
+                        </div>
+                        <button type="submit" class="gradient-bg text-white px-8 py-4 rounded-xl font-bold hover:shadow-xl transition transform hover:-translate-y-1 w-full">
+                            <i class="fas fa-paper-plane mr-2"></i> Send Message
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>
     </section>
-    <!-- / contact -->
 
-    <!-- footer -->
-    <div id="footer"></div>
-    <!-- / footer -->
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-8 md:mb-0">
+                    <h2 class="text-3xl font-bold heading-font mb-2">Sauleni Silas Chisale</h2>
+                    <p class="text-gray-400">Full Stack Developer & Software Engineer</p>
+                    <p class="text-gray-500 mt-4">Crafting digital solutions that drive results</p>
+                </div>
+                <div class="text-center md:text-right">
+                    <div class="mb-6">
+                        <a href="mailto:saulenisilaschisale007@gmail.com" class="text-gray-300 hover:text-white font-medium">saulenisilaschisale007@gmail.com</a>
+                        <p class="text-gray-500 mt-1">+263 781 521 074</p>
+                    </div>
+                    <!-- <p class="text-gray-600 mt-2">Designed with <i class="fas fa-heart text-red-500"></i> using Tailwind CSS, AOS & Font Awesome</p> -->
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-10 pt-8 text-center text-gray-500">
+                <p>© <span id="currentYear"></span> Sauleni Silas Chisale. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
 
-    <!-- scroll button -->
-    <button id="scroller" style="display: none;">
-        <!-- <i class="fa fa-arrow-circle-o-up" aria-hidden="true"></i> -->
-        <i class="fa fa-arrow-circle-up" aria-hidden="true"></i>
-    </button>
-    <!-- / scroll button -->
-
-    <div id="modal" style="display: none;">
-        <button id="close">X</button>
-        <iframe src="./aquarium/index.html" title="Iframe Example" id="iframe"></iframe>
-    </div>
-
-
-    <!-- scripts -->
-    <script src="./js/script.js"></script>
-
-    <!-- / scripts -->
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+        
+        // Set current year in footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    // Close mobile menu if open
+                    document.getElementById('mobile-menu').classList.add('hidden');
+                    
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+        
+        // Form submission handler
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+            
+            // Form validation
+            if(name && email && subject && message) {
+                // In a real implementation, you would send this data to a server
+                // For this demo, we'll just show a success message
+                
+                // Create a success notification
+                const notification = document.createElement('div');
+                notification.className = 'fixed top-24 right-6 bg-green-500 text-white px-6 py-4 rounded-lg shadow-xl z-50';
+                notification.innerHTML = `
+                    <div class="flex items-center">
+                        <i class="fas fa-check-circle text-xl mr-3"></i>
+                        <div>
+                            <p class="font-bold">Message Sent Successfully!</p>
+                            <p class="text-sm">Thank you, ${name}. I'll get back to you within 24 hours.</p>
+                        </div>
+                    </div>
+                `;
+                document.body.appendChild(notification);
+                
+                // Clear form
+                document.getElementById('contactForm').reset();
+                
+                // Remove notification after 3 seconds
+                setTimeout(() => {
+                    notification.remove();
+                }, 3000);
+            } else {
+                // Show error notification
+                const notification = document.createElement('div');
+                notification.className = 'fixed top-24 right-6 bg-red-500 text-white px-6 py-4 rounded-lg shadow-xl z-50';
+                notification.innerHTML = `
+                    <div class="flex items-center">
+                        <i class="fas fa-exclamation-circle text-xl mr-3"></i>
+                        <div>
+                            <p class="font-bold">Please fill in all required fields</p>
+                            <p class="text-sm">All fields marked with * are required.</p>
+                        </div>
+                    </div>
+                `;
+                document.body.appendChild(notification);
+                
+                // Remove notification after 3 seconds
+                setTimeout(() => {
+                    notification.remove();
+                }, 3000);
+            }
+        });
+        
+        // Add scroll effect to navbar
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('shadow-lg');
+                header.classList.remove('bg-white/90');
+                header.classList.add('bg-white');
+            } else {
+                header.classList.remove('shadow-lg');
+                header.classList.add('bg-white/90');
+                header.classList.remove('bg-white');
+            }
+        });
+    </script>
 </body>
-
 </html>
